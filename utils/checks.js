@@ -1,4 +1,4 @@
-const cherrio = require('cheerio');
+const { scrapper } = require('./scraper');
 
 const URL_Check = (url)=>{
     try{
@@ -18,42 +18,35 @@ const getDomain = (url)=>{
 const get_htmlElements = (domain)=>{
     if(domain === "amazon"){
         return {
+            found : true,
             name_element : "#productTitle",
             price_element : ".a-price-whole"
         }
     }
     else if(domain === "flipkart"){
         return {
+            found : true,
             name_element : ".B_NuCI",
             price_element : "._30jeq3"
         }
     }
-}
-
-const get_htmlData = async(url,htmlElements)=>{
-    const raw = await fetch(url);
-    const html = await raw.text();
-    const $ = cherrio.load(html);
-
-    const price = $(htmlElements.price_element).text().split('.')[0];
-    const name = $(htmlElements.name_element).text().trim();
-
-    return {
-        Product_Name : name,
-        Product_Price : parseFloat(parseFloat(price.replace(/,/g, '')))
-    }
+    return { found : false };
 }
 
 const get_productData = async(url)=>{
     const domain = getDomain(url);
     const htmlElements =  get_htmlElements(domain);
-    return await get_htmlData(url,htmlElements);
+
+    if(!htmlElements.found){
+        return { status : false };
+    }
+
+    return await scrapper(url, htmlElements);
 }
 
 module.exports = {
     URL_Check,
     getDomain,
     get_htmlElements,
-    get_htmlData,
     get_productData
 }

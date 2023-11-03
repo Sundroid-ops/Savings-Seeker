@@ -2,7 +2,8 @@ const {
   registerProduct,
   registerUser,
   removeProduct,
-  toggleAlert
+  toggleAlert,
+  showProducts
 } = require("../middleware/commandLogic");
 
 const commands = (bot)=>{
@@ -22,6 +23,10 @@ const commands = (bot)=>{
 
     bot.onText(/\/toggleAlert/, async(msg)=>{
       bot.sendMessage(msg.chat.id, await toggleAlert(msg.chat.id));
+    })
+
+    bot.onText(/\/showproducts/, async(msg)=>{
+      bot.sendMessage(msg.chat.id, await showProducts(msg.chat.id));
     })
 }
 

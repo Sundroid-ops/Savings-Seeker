@@ -12,7 +12,7 @@ commands(bot);
 
 setInterval( async()=>{
     await priceAlert(bot);
-},3600000);
+}, 3600000);
 
 app.listen(4000,()=>{
     console.log("Listening on PORT 4000🚀");
