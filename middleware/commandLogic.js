@@ -21,7 +21,9 @@ const registerUser = async(chat_ID)=>{
 
 const registerProduct = async(chat_ID,input_data)=>{
     try{
+        //accepts url from user
         const url = input_data[0];
+        //accepts Targetprice from user
         const priceTrigger = parseFloat(input_data[1]);
         if(!URL_Check(url)){
             return "Invalid URL";

@@ -1,8 +1,4 @@
-const mongoose = require("mongoose");
-
-mongoose.connect('mongodb://127.0.0.1:27017/SavingsBot')
-    .then(d=>console.log("Data Connection Secured"))
-    .catch(err=> console.log("Data Connection Error"));
+const { mongoose } = require("mongoose");
 
 const productSchema = new mongoose.Schema({
     user_ID : {

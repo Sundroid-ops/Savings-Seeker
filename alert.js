@@ -7,11 +7,12 @@ const priceAlert = async(bot)=>{
     const allList = await dbData.find({});
 
     for(let userList of allList){
+        //checks if user wants to be notified about the price-drop or not
         if(userList.alert){
             for(let productList of userList.product){
                 const now = dayjs();
                 const lastAlert = dayjs(productList.alertSend);
-
+                //scraps products data only if last alert was sent 6 hours from current time
                 if(now.diff(lastAlert,'hour') >= 6){
                     const CurrentData = await get_productData(productList.URL);
                     

@@ -10,3 +10,38 @@ Savings-seeker is a telegram bot who tracks user registered products on amazon a
 
 # Setting up the project locally⚙️
 
+We are using `npm` as the package manager. So make sure you have it installed in your system.
+
+## Installing Dependencies⏳
+
+- Open the terminal and navigate to `Savings-Seeker` directory.
+- type `npm install` to install all dependencies.
+- Once the installation is done, you can start the bot by typing `node start`.
+- This should have made the **bot online** now.
+
+## Setting up `.env`📃
+
+You must create a `.env` file similar to **[.env.example](.env.example)** 
+
+### Setting up `Telegram API` for `.env`
+
+- Head to Telegram and search for `BotFather`.
+- Follow around the instructions to get your API keys.
+
+![BotFather](https://botifi.me/help/media/image_upload/2021/08/04/2021-08-04-234331.png)
+
+### Setting up `Mongodb URL`
+
+- Head to **[MongoDB Atlas](https://account.mongodb.com/account/login?n=%2Fv2&nextHash=%23org%2F651fa1030302051bf2d22712%2Fprojects)** and signup for cloud access for mongoDB cloud account.
+
+- Create a `project` for your account.
+
+- After creating a project, you must create a database to store data for this project. 
+
+![cloud DB](https://www.freecodecamp.org/news/content/images/2022/05/image-120.png)
+
+- Enter all your credentials for the project as required.
+
+- After creating your database, you database should look like this after proper setup(Note this is just an example database).
+
+![DB setup](https://www.mongodb.com/docs/atlas/images/atlas-ui-dbs-collections.png)

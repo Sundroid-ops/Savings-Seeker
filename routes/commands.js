@@ -21,7 +21,7 @@ const commands = (bot)=>{
       bot.sendMessage(msg.chat.id, await removeProduct(msg.chat.id, input_data));
     })
 
-    bot.onText(/\/toggleAlert/, async(msg)=>{
+    bot.onText(/\/togglealert/, async(msg)=>{
       bot.sendMessage(msg.chat.id, await toggleAlert(msg.chat.id));
     })
 
