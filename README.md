@@ -1,6 +1,12 @@
 # Savings-Seeker's: Price Tracker bot🤖
 
-Savings-seeker is a telegram bot who tracks user registered products on amazon and flipkart products. Use it to get notified when your favourite product's price drop.
+Savings-seeker is a telegram bot who tracks user registered products on amazon and flipkart products. Use it to track your favourite products and get alerts for their price drop.
+
+# Interface
+
+![UI1](/assets/Interface(1).png)![UI2](/assets/Interface(2).png)
+
+
 
 # Tech Stack(Backend)💻
 ![Express](https://camo.githubusercontent.com/ac7388d978891bfd6b5a6f594e506a61eaea7b335374fb5d1b0c0ceecd6080ed/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f657870726573732e6a732d2532333430346435392e7376673f7374796c653d666f722d7468652d6261646765)
@@ -16,7 +22,8 @@ We are using `npm` as the package manager. So make sure you have it installed in
 
 - Open the terminal and navigate to `Savings-Seeker` directory.
 - type `npm install` to install all dependencies.
-- Once the installation is done, you can start the bot by typing `node start`.
+- Once the installation is done, you can start the bot by typing `npm start`.
+- Projects uses `nodemon` for hot reloading.
 - This should have made the **bot online** now.
 
 ## Setting up `.env`📃
@@ -45,3 +52,9 @@ You must create a `.env` file similar to **[.env.example](.env.example)**
 - After creating your database, you database should look like this after proper setup(Note this is just an example database).
 
 ![DB setup](https://www.mongodb.com/docs/atlas/images/atlas-ui-dbs-collections.png)
+
+# Test Cases
+Using `jest` to handle unit tests for the project. Run `npm test` to run unit tests.
+
+# Need Help?
+Contact me on [Twitter](https://twitter.com/lipundani05) or [Linkedin](https://www.linkedin.com/in/lipun-dani-5b8625236/).
