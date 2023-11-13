@@ -16,10 +16,7 @@ setInterval( async()=>{
 }, 3600000);
 
 //connecting to cloud mongoDB
-const connectDB = async()=>{
-    await mongoConnect();
-}
-connectDB();
+mongoConnect();
 
 app.listen(4000,()=>{
     console.log("Listening on PORT 4000🚀");

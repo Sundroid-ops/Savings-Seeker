@@ -1,7 +1,7 @@
 const { default: puppeteer } = require('puppeteer');
 
 const scrapper = async(url, htmlElements)=>{
-    const browser = await puppeteer.launch({ headless : true });
+    const browser = await puppeteer.launch({ headless : 'new' });
     const page = await browser.newPage();
     await page.goto(url);
 
@@ -12,7 +12,7 @@ const scrapper = async(url, htmlElements)=>{
             Product_Price: parseFloat((document.querySelector(htmlElements.price_element).innerText).replace('₹', '').replace(',', '').replace('.',''))
         }
         
-        return data;
+        return data
     }, htmlElements)
 
     await browser.close();

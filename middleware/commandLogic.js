@@ -3,8 +3,8 @@ const {URL_Check, get_productData} = require("../utils/checks");
 
 const registerUser = async(chat_ID)=>{
     try{
-        const findUser = await productTracker.find({ user_ID: chat_ID });
-        if(findUser.length){
+        const findUser = await productTracker.findOne({ user_ID: chat_ID });
+        if(findUser){
             return "Already Registered✅";
         }
         const newUser = new productTracker({
@@ -29,15 +29,15 @@ const registerProduct = async(chat_ID,input_data)=>{
             return "Invalid URL";
         }
 
-        const findProduct = await productTracker.find({ user_ID: chat_ID , product: {$elemMatch: { URL: url } } });
-        if(findProduct.length){
+        const findProduct = await productTracker.findOne({ user_ID: chat_ID , product: {$elemMatch: { URL: url } } });
+        if(findProduct){
             return "This Product is already registered";
         }
         const findUser = await productTracker.findOne({ user_ID: chat_ID });
         const pageData = await get_productData(url)
 
         if(!pageData.status){
-            return 'Sorry, We do not track these website';
+            return 'Sorry, We do not track from these website';
         }
 
         if(priceTrigger >= pageData.Product_Price){
@@ -61,8 +61,8 @@ const registerProduct = async(chat_ID,input_data)=>{
 
 const removeProduct = async(chat_ID, url)=>{
     try{
-        const findProduct = await productTracker.find({ user_ID: chat_ID , product: {$elemMatch: { URL: url } } });
-        if(findProduct.length){
+        const findProduct = await productTracker.findOne({ user_ID: chat_ID , product: {$elemMatch: { URL: url } } });
+        if(findProduct){
             await productTracker.updateOne(
                 {user_ID : chat_ID},
                 { $pull : { product : { URL : url }}}
@@ -98,7 +98,7 @@ const showProducts = async(chat_ID)=>{
     try{
         const findUser = await productTracker.findOne({ user_ID : chat_ID });
 
-        if(!findUser.product){
+        if(!findUser.product.length){
             return 'No product registered yet';
         }
 

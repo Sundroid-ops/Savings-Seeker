@@ -9,5 +9,4 @@ async function mongoConnect() {
     console.error(err);
   }
 }
-
 module.exports = mongoConnect ;
