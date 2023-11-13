@@ -2,7 +2,7 @@
 
 Savings-seeker is a telegram bot who tracks user registered products on amazon and flipkart products. Use it to track your favourite products and get alerts for their price drop.
 
-# Interface
+# Interface📱
 
 ![UI1](/assets/Interface(1).png)![UI2](/assets/Interface(2).png)
 
